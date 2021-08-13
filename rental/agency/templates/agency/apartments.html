@@ -6,22 +6,22 @@
 
 {% block content %}
 <div class="container">
-    <h3>{{ title }}</h3>
+    <h5 class="pageTitle">{{ title }}</h5>
     <div class="row">
         <div class="col s12 m12 l3">
             {% include 'inc/_sidebar.html' %}
         </div>
         <div class="col s12 m12 l9">
             {% if not flats %}
-                <div class="col s12">
-                    <h4>Предложения данной категории отсутствуют!</h4>
+                <div class="col s12 card-panel yellow lighten-5 z-depth-2" style="text-align: center;">
+                    <p class="flow-text red-text text-accent-4">Предложения данной категории отсутствуют!</p>
                 </div>
             {% endif %}
 
             <div class="row">
                 {% for item in flats %}
                 <div class="col s12 m6 l4">
-                    <div class="card sticky-action" style="height: 450px;">
+                    <div class="card sticky-action hoverable" style="height: 450px;">
                         <div class="card-image waves-effect waves-block waves-light">
                             <img class="activator" src="{{ item.images.first.image.url }}">
                         </div>
