@@ -1,0 +1,47 @@
+<header>
+    <!-- Data Dropdown -->
+    <ul id="dropdown1" class="dropdown-content">
+        <li><a href="{% url 'apartments' %}">Квартиры</a></li>
+        <li class="divider"></li>
+        <li><a href="#">Дома</a></li>
+        <li class="divider"></li>
+        <li><a href="#">Коммерческая</a></li>
+        <li class="divider"></li>
+        <li><a href="#">Гаражи</a></li>
+        <li class="divider"></li>
+        <li><a href="#">Участки</a></li>
+    </ul>
+    <ul id="dropdown2" class="dropdown-content">
+        <li><a href="{% url 'apartments' %}">Квартиры</a></li>
+        <li class="divider"></li>
+        <li><a href="#">Дома</a></li>
+        <li class="divider"></li>
+        <li><a href="#">Коммерческая</a></li>
+        <li class="divider"></li>
+        <li><a href="#">Гаражи</a></li>
+        <li class="divider"></li>
+        <li><a href="#">Участки</a></li>
+    </ul>
+    <!-- END Data Dropdown -->
+    <nav class="sidenav-trigger">
+        <div class="nav-wrapper">
+            <div class="container">
+                <a href="{% url 'home' %}" class="brand-logo"><img style="width: 130px; margin-top: 4px;" src="/media/logos/logo3.png"></a>
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Недвижимость<i class="material-icons right">arrow_drop_down</i></a></li>
+                    <li><a href="#">О нас</a></li>
+                    <li><a href="#">Контакты</a></li>
+                    <li><a href="#">Обратная связь</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Mobile collapsible navbar -->
+    <ul class="sidenav" id="mobile-demo">
+        <li><a href="#">О нас</a></li>
+        <li><a href="#">Контакты</a></li>
+        <li><a href="#">Обратная связь</a></li>
+        <li><a class="dropdown-trigger" href="#!" data-target="dropdown2">Недвижимость<i class="material-icons right">arrow_drop_down</i></a></li>
+    </ul>
+</header>

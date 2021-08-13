@@ -1,0 +1,113 @@
+{% extends 'index.html' %}
+
+{% block title %}
+  {{title}} - {{ block.super }}
+{% endblock %}
+
+{% block content %}
+<div class="container">
+
+    <div class="row">
+        <!-- MAIN SECTION -->
+        <div class="col s12 m8 l9">
+            <div class="mainTitle">
+                <img src="media/logos/logo4.png" style="width: 200px;" alt="logo">
+                <h4 class="siteTitle">Агенство недвижимости</h4>
+                <h1 class="AgencyName">"Вектор" Краматорск</h1>
+                <h2 class="AgencySlogan">Поможем Вам продать/купить, сдать/снять недвижимость на выгодных условиях.</h2>
+            </div>
+
+        </div>
+        <!-- SIDEBAR MEDIA LINKS -->
+        <div class="col s12 m4 l3" style="margin-top: 30px; margin-bottom: 80px;">
+            <div class="col s12">
+                <a href="{% url 'apartments' %}" class="tooltipped" data-position="left" data-tooltip="Квартиры">
+                    <img class="apartmentIMGlnk imgLNK" src="media/logos/Apartment.png">
+                </a>
+            </div>
+            <div class="col s12">
+                <a href="#" class="tooltipped" data-position="left" data-tooltip="Дома">
+                    <img class="houseIMGlnk imgLNK" src="media/logos/house.png">
+                </a>
+            </div>
+            <div class="col s12">
+                <a href="#" class="tooltipped" data-position="left" data-tooltip="Коммерческая">
+                    <img class="commercialIMGlnk imgLNK" src="media/logos/commercial.png">
+                </a>
+            </div>
+            <div class="col s12">
+                <a href="#" class="tooltipped" data-position="left" data-tooltip="Гаражи">
+                    <img class="garageIMGlnk imgLNK" src="media/logos/garage.png">
+                </a>
+            </div>
+            <div class="col s12">
+                <a href="#" class="tooltipped" data-position="left" data-tooltip="Участки">
+                    <img class="landscapeIMGlnk imgLNK" src="media/logos/landscape.png">
+                </a>
+            </div>
+        </div>
+    </div>
+    <br>
+    <!-- INFO CARDS -->
+    <div class="row">
+
+        <div class="col s12 m12 l4">
+            <div class="card-panel blue lighten-5">
+                <span class="black-text">
+                    <h6>Покупка/продажа недвижимости</h6>
+                    <ul>
+                        <li><i class="material-icons">check</i>Консультация при встрече с риэлторами</li>
+                        <li><i class="material-icons">check</i>Бесплатная оценка недвижимости</li>
+                        <li><i class="material-icons">check</i>Юридическая проверка всех документов</li>
+                        <li><i class="material-icons">check</i>Оформление и сопровождение сделки</li>
+                        <li><i class="material-icons">check</i>Гарантированные сроки</li>
+                    </ul>
+                </span>
+            </div>
+        </div>
+
+        <div class="col s12 m12 l4">
+            <div class="card-panel blue lighten-5">
+                <span class="black-text">
+                    <h6>Аренда/обмен недвижимости</h6>
+                    <ul>
+                        <li><i class="material-icons">check</i>Страхование от различных рисков</li>
+                        <li><i class="material-icons">check</i>Подготовка договоров аренды</li>
+                        <li><i class="material-icons">check</i>Эффективная реклама предложений</li>
+                        <li><i class="material-icons">check</i>Юридическая поддержка на всех этапах</li>
+                        <li><i class="material-icons">check</i>Оперативный поиск клиентов</li>
+                    </ul>
+                </span>
+            </div>
+        </div>
+
+        <div class="col s12 m12 l4">
+            <div class="card-panel blue lighten-5">
+                <span class="black-text">
+                    <h6>Клиентоориентированный подход</h6>
+                    <ul>
+                        <li><i class="material-icons">check</i>Персональная ответственность сотрудников</li>
+                        <li><i class="material-icons">check</i>Грамотная коммуникация</li>
+                        <li><i class="material-icons">check</i>Своевременная организация показов</li>
+                        <li><i class="material-icons">check</i>Подбор выгодных предложений</li>
+                        <li><i class="material-icons">check</i>Юридические гарантии чистоты сделки</li>
+                    </ul>
+                </span>
+            </div>
+        </div>
+
+    </div>
+    <!-- END INFO CARDS -->
+
+
+    <!--
+    <div class="row">
+        <div class="col s12 m6 l2"><img src="media/logos/Apartment.png" style="width: 200px;"></div>
+        <div class="col s12 m6 l2"><img src="media/logos/house.png" style="width: 200px; height: 110px;"></div>
+        <div class="col s12 m6 l2"><img src="media/logos/commercial2.png" style="width: 200px; height: 100px;"></div>
+        <div class="col s12 m6 l2"><img src="media/logos/garage.png" style="width: 200px;"></div>
+        <div class="col s12 m6 l2"><img src="media/logos/landscape.png" style="width: 200px;"></div>
+    </div>
+    -->
+</div>
+{% endblock %}
