@@ -3,11 +3,11 @@
       <div class="collapsible-header"><i class="material-icons">attach_money</i>Продажа</div>
       <div class="collapsible-body">
           <ul>
-              <li><a href="/apartments/sale/"><h6>Все</h6></a></li>
-              <li><a href="#"><h6>1 комнатные</h6></a></li>
-              <li><a href="#"><h6>2 комнатные</h6></a></li>
-              <li><a href="#"><h6>3 комнатные</h6></a></li>
-              <li><a href="#"><h6>4+ комнат</h6></a></li>
+              <li><a href="{% url 'apartmentsProposalType' 'sale' %}"><h6>Все</h6></a></li>
+              <li><a href="{% url 'apartmentsProposalTypeByRoomsNumber' 'sale' '1' %}"><h6>1 комнатные</h6></a></li>
+              <li><a href="{% url 'apartmentsProposalTypeByRoomsNumber' 'sale' '2' %}"><h6>2 комнатные</h6></a></li>
+              <li><a href="{% url 'apartmentsProposalTypeByRoomsNumber' 'sale' '3' %}"><h6>3 комнатные</h6></a></li>
+              <li><a href="{% url 'apartmentsProposalTypeByRoomsNumber' 'sale' '4' %}"><h6>4+ комнат</h6></a></li>
           </ul>
       </div>
     </li>
@@ -15,11 +15,11 @@
       <div class="collapsible-header"><i class="material-icons">business</i>Аренда</div>
       <div class="collapsible-body">
           <ul>
-              <li><a href="/apartments/rental/"><h6>Все</h6></a></li>
-              <li><a href="#"><h6>1 комнатные</h6></a></li>
-              <li><a href="#"><h6>2 комнатные</h6></a></li>
-              <li><a href="#"><h6>3 комнатные</h6></a></li>
-              <li><a href="#"><h6>4+ комнат</h6></a></li>
+              <li><a href="{% url 'apartmentsProposalType' 'rental' %}"><h6>Все</h6></a></li>
+              <li><a href="{% url 'apartmentsProposalTypeByRoomsNumber' 'rental' '1' %}"><h6>1 комнатные</h6></a></li>
+              <li><a href="{% url 'apartmentsProposalTypeByRoomsNumber' 'rental' '2' %}"><h6>2 комнатные</h6></a></li>
+              <li><a href="{% url 'apartmentsProposalTypeByRoomsNumber' 'rental' '3' %}"><h6>3 комнатные</h6></a></li>
+              <li><a href="{% url 'apartmentsProposalTypeByRoomsNumber' 'rental' '4' %}"><h6>4+ комнат</h6></a></li>
           </ul>
       </div>
     </li>
@@ -27,11 +27,11 @@
       <div class="collapsible-header"><i class="material-icons">cached</i>Обмен</div>
       <div class="collapsible-body">
           <ul>
-              <li><a href="/apartments/exchange/"><h6>Все</h6></a></li>
-              <li><a href="#"><h6>1 комнатные</h6></a></li>
-              <li><a href="#"><h6>2 комнатные</h6></a></li>
-              <li><a href="#"><h6>3 комнатные</h6></a></li>
-              <li><a href="#"><h6>4+ комнат</h6></a></li>
+              <li><a href="{% url 'apartmentsProposalType' 'exchange' %}"><h6>Все</h6></a></li>
+              <li><a href="{% url 'apartmentsProposalTypeByRoomsNumber' 'exchange' '1' %}"><h6>1 комнатные</h6></a></li>
+              <li><a href="{% url 'apartmentsProposalTypeByRoomsNumber' 'exchange' '2' %}"><h6>2 комнатные</h6></a></li>
+              <li><a href="{% url 'apartmentsProposalTypeByRoomsNumber' 'exchange' '3' %}"><h6>3 комнатные</h6></a></li>
+              <li><a href="{% url 'apartmentsProposalTypeByRoomsNumber' 'exchange' '4' %}"><h6>4+ комнат</h6></a></li>
           </ul>
       </div>
     </li>
