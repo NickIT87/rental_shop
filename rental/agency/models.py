@@ -1,5 +1,6 @@
 from django.db import models
 from django.core.validators import MinValueValidator, MaxValueValidator
+from django.urls import reverse
 
 
 # SLUG CONSTANTS
@@ -68,6 +69,8 @@ class Apartment(models.Model):
     # METHODS
     # def delete(self):
     #     print("deleted from Class Apartment")
+    def get_absolute_url(self):
+        return reverse('apartment', kwargs={"pk": self.pk})
 
     def __str__(self):
         return  self.slug_title + '_' + self.address
