@@ -1,0 +1,11 @@
+{% extends 'index.html' %}
+
+{% block title %}
+  {{title}} - {{ block.super }}
+{% endblock %}
+
+{% block content %}
+    <h1>Apartment detail</h1>
+    <h2>{{ object.created_at | date:"Y-m-d H:i:s" }}</h2>
+    <h3>{{ object.pk }}</h3>
+{% endblock %}

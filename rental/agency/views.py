@@ -84,3 +84,7 @@ class ApartmentsProposalTypeByRoomsNumber(ListView):
             return Apartment.objects.filter(proposal_type=self.kwargs['proposal_type'], number_of_rooms__gt=3)
         else:
             raise Http404
+
+
+class ApartmentView(DetailView):
+    model = Apartment
