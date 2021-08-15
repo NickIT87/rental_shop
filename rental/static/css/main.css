@@ -65,3 +65,41 @@ main {
     margin-left: 5px;
     padding: 5px;
 }
+
+
+/*  s<=600   m>600  l>992   xl>1200  */
+/* s */
+/* @media screen and (max-width: 600px) {
+    .card {
+        color: red;
+    }
+} */
+/* m */
+@media screen and (min-width: 601px) and (max-width: 700px) {
+    .card {
+        height: 380px;
+    }
+}
+@media screen and (min-width: 701px) and (max-width: 900px) {
+    .card {
+        height: 400px;
+    }
+}
+@media screen and (min-width: 901px) and (max-width: 992px) {
+    .card {
+        height: 430px;
+    }
+}
+/* l */
+@media screen and (min-width: 993px) {
+    .card {
+        height: 380px;
+    }
+}
+/* xl */
+/* @media screen and (min-width: 1201px) {
+    .card {
+        color: pink;
+        height: 380px;
+    }
+} */
