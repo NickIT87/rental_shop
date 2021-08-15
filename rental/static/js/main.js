@@ -1,4 +1,5 @@
 $(document).ready(function(){
+    // home page scripts
     $('.sidenav').sidenav();
     $(".dropdown-trigger").dropdown({
         hover: true
@@ -6,6 +7,7 @@ $(document).ready(function(){
     $('.tooltipped').tooltip();
     $('.collapsible').collapsible();
 
+    // apartments sidebar
     $('.collapsible li._sidebar').each(function(index){
         let location = window.location.pathname;
         if(location.includes(this.id)){
@@ -14,4 +16,10 @@ $(document).ready(function(){
         }
     });
 
+    // apartment detail scripts
+    $('.materialboxed').materialbox();
+    $('.carousel').carousel();
+    if ($("[data-fancybox]").length) {
+        $("[data-fancybox]").fancybox()
+    }
 });
