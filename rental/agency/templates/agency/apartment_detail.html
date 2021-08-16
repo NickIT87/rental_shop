@@ -6,41 +6,69 @@
 
 {% block content %}
 <div class="container">
-    <h1>Квартира, id: {{ object.pk }}</h1>
-    <h2>В продаже от: {{ object.created_at | date:"Y-m-d H:i:s" }}</h2>
-    <h2>Обновлено: {{ object.updated_at | date:"Y-m-d H:i:s" }}</h2>
-    <h3>Цена $: {{ object.price }}</h3>
-    <p>Комнат: {{ object.number_of_rooms }}</p>
-    <p>Этаж: {{ object.floor_number }}</p>
-    <p>Всего этажей: {{ object.total_floors_number }}</p>
-    <p>Санузел: {{ object.bathroom }}</p>
-    <p>Тип окон: {{ object.window_type }}</p>
-    <p>Балкон: {{ object.balcony }}</p>
-    <p>Состояние: {{ object.room_condition }}</p>
-    <p>Общая площадь кв/м. : {{ object.total_area }}</p>
-    <p>Адрес: {{ object.address }}</p>
-    <p>Описание: {{ object.description }}</p>
-
-
-
-
-
     <div class="row">
+        <div class="col s12 m12 l6 xl6">
+            <h1>Квартира, id: {{ object.pk }}</h1>
+            <table class="striped">
+                <thead>
+                <tr>
+                    <th>Основная информация</th>
+                </tr>
+                </thead>
 
-            <div class="col s3 m3 l3">
-                <img class="materialboxed responsive-img" width="150" src="{{ object.images.first.image.url }}">
+                <tbody>
+                <tr>
+                    <td>Предложение от:</td>
+                    <td>{{ object.created_at | date:"Y-m-d H:i:s" }}</td>
+                </tr>
+                <tr>
+                    <td>Alan</td>
+                    <td>Jellybean</td>
+
+                </tr>
+                <tr>
+                    <td>Jonathan</td>
+                    <td>Lollipop</td>
+
+                </tr>
+                </tbody>
+            </table>
+
+
+
+
+
+
+
+            <h5>В продаже от: {{ object.created_at | date:"Y-m-d H:i:s" }}</h5>
+            <h5>Обновлено: {{ object.updated_at | date:"Y-m-d H:i:s" }}</h5>
+            <h5>Цена $: {{ object.price }}</h5>
+            <p>Комнат: {{ object.number_of_rooms }}</p>
+            <p>Этаж: {{ object.floor_number }}</p>
+            <p>Всего этажей: {{ object.total_floors_number }}</p>
+            <p>Санузел: {{ object.bathroom }}</p>
+            <p>Тип окон: {{ object.window_type }}</p>
+            <p>Балкон: {{ object.balcony }}</p>
+            <p>Состояние: {{ object.room_condition }}</p>
+            <p>Общая площадь кв/м. : {{ object.total_area }}</p>
+            <p>Адрес: {{ object.address }}</p>
+            <p>Описание: {{ object.description }}</p>
+        </div>
+        <div class="col s12 m12 l6 xl6">
+            <div class="row">
+                <div class="col s12">
+                    <div class="carousel gallery">
+                        {% for photo in object.images.all %}
+                        <a data-fancybox="gallery" class="carousel-item" href="{{ photo.image.url }}">
+                            <img src="{{ photo.image.url }}">
+                        </a>
+                        {% endfor %}
+                    </div>
+                </div>
+                <h5> next info ... </h5>
             </div>
+        </div>
 
     </div>
-
-
-
-    <div class="carousel gallery">
-        {% for photo in object.images.all %}
-        <a data-fancybox="gallery" class="carousel-item" href="{{ photo.image.url }}"><img src="{{ photo.image.url }}"></a>
-        {% endfor %}
-    </div>
-
-
 </div>
 {% endblock %}

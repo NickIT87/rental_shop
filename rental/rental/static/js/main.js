@@ -17,8 +17,9 @@ $(document).ready(function(){
     });
 
     // apartment detail scripts
-    $('.materialboxed').materialbox();
-    $('.carousel').carousel();
+    $('.carousel').carousel({
+        indicators: true
+    });
     if ($("[data-fancybox]").length) {
         $("[data-fancybox]").fancybox()
     }
