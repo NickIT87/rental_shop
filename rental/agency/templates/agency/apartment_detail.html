@@ -7,53 +7,66 @@
 {% block content %}
 <div class="container">
     <div class="row">
+
         <div class="col s12 m12 l6 xl6">
-            <h1>Квартира, id: {{ object.pk }}</h1>
+            <h5>Квартира, {{ object.proposal_type }}.</h5>
+            <h4>$: {{ object.price }}</h4>
             <table class="striped">
                 <thead>
                 <tr>
-                    <th>Основная информация</th>
+                    <th>{{ object.address }}</th>
                 </tr>
                 </thead>
 
                 <tbody>
                 <tr>
-                    <td>Предложение от:</td>
+                    <td>Комнат:</td>
+                    <td>{{ object.number_of_rooms }}</td>
+                </tr>
+                <tr>
+                    <td>Этаж:</td>
+                    <td>{{ object.floor_number }}</td>
+                </tr>
+                <tr>
+                    <td>Всего этажей:</td>
+                    <td>{{ object.total_floors_number }}</td>
+                </tr>
+                <tr>
+                    <td>Санузел:</td>
+                    <td>{{ object.bathroom }}</td>
+                </tr>
+                <tr>
+                    <td>Тип окон:</td>
+                    <td>{{ object.window_type }}</td>
+                </tr>
+                <tr>
+                    <td>Балкон:</td>
+                    <td>{{ object.balcony }}</td>
+                </tr>
+                <tr>
+                    <td>Состояние:</td>
+                    <td>{{ object.room_condition }}</td>
+                </tr>
+                <tr>
+                    <td>Общая площадь кв/м.:</td>
+                    <td>{{ object.total_area }}</td>
+                </tr>
+                <tr>
+                    <td>Опубликовано:</td>
                     <td>{{ object.created_at | date:"Y-m-d H:i:s" }}</td>
                 </tr>
                 <tr>
-                    <td>Alan</td>
-                    <td>Jellybean</td>
-
+                    <td>ID:</td>
+                    <td>{{ object.pk }}</td>
                 </tr>
                 <tr>
-                    <td>Jonathan</td>
-                    <td>Lollipop</td>
-
+                    <td>Обновлено:</td>
+                    <td>{{ object.updated_at | date:"Y-m-d H:i:s" }}</td>
                 </tr>
                 </tbody>
             </table>
-
-
-
-
-
-
-
-            <h5>В продаже от: {{ object.created_at | date:"Y-m-d H:i:s" }}</h5>
-            <h5>Обновлено: {{ object.updated_at | date:"Y-m-d H:i:s" }}</h5>
-            <h5>Цена $: {{ object.price }}</h5>
-            <p>Комнат: {{ object.number_of_rooms }}</p>
-            <p>Этаж: {{ object.floor_number }}</p>
-            <p>Всего этажей: {{ object.total_floors_number }}</p>
-            <p>Санузел: {{ object.bathroom }}</p>
-            <p>Тип окон: {{ object.window_type }}</p>
-            <p>Балкон: {{ object.balcony }}</p>
-            <p>Состояние: {{ object.room_condition }}</p>
-            <p>Общая площадь кв/м. : {{ object.total_area }}</p>
-            <p>Адрес: {{ object.address }}</p>
-            <p>Описание: {{ object.description }}</p>
         </div>
+
         <div class="col s12 m12 l6 xl6">
             <div class="row">
                 <div class="col s12">
@@ -65,7 +78,31 @@
                         {% endfor %}
                     </div>
                 </div>
-                <h5> next info ... </h5>
+                <div class="col s12">
+                    <h6>&nbsp;&nbsp;&nbsp;{{ object.description }}</h6>
+                </div>
+
+                <div class="col s12" style="margin-top: 50px;">
+                    <div class="col s10 offset-s1">
+                    <div class="card-panel grey lighten-5 z-depth-1">
+                        <div class="row valign-wrapper">
+                            <div class="col s2">
+                                <img src="images/yuna.jpg" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
+                            </div>
+                            <div class="col s10">
+                                  <span class="black-text">
+                                    Ваш риэлтор:
+                                  </span>
+                                  <h6 class="black-text">
+                                    Алена, +38 (095) 777 99 00
+                                  </h6>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+
+
             </div>
         </div>
 
