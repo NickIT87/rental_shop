@@ -103,3 +103,15 @@ main {
         height: 380px;
     }
 } */
+
+.itemPrice {
+    color: #00e676;
+    text-shadow: 1px 1px 1px black;
+}
+
+.itemTitle {
+    font-family: 'Rubik Mono One', sans-serif;
+    color: #90caf9;
+    text-shadow: 1px 1px 1px black;
+    margin-top: 21px;
+}

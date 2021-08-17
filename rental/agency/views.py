@@ -27,7 +27,7 @@ class ApartmentsView(ListView):
     model = Apartment
     template_name = "agency/apartments.html"
     context_object_name = 'flats'
-    paginate_by = 9
+    paginate_by = 6
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -42,7 +42,7 @@ class ApartmentsProposalTypeView(ListView):
     model = Apartment
     template_name = "agency/apartments.html"
     context_object_name = 'flats'
-    paginate_by = 3
+    paginate_by = 6
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -60,7 +60,7 @@ class ApartmentsProposalTypeByRoomsNumber(ListView):
     model = Apartment
     template_name = "agency/apartments.html"
     context_object_name = 'flats'
-    paginate_by = 3
+    paginate_by = 6
     #allow_empty = False
 
     def get_context_data(self, **kwargs):

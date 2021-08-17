@@ -17,9 +17,7 @@ $(document).ready(function(){
     });
 
     // apartment detail scripts
-    $('.carousel').carousel({
-        indicators: true
-    });
+    $('.carousel').carousel();
     if ($("[data-fancybox]").length) {
         $("[data-fancybox]").fancybox()
     }
