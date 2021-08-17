@@ -12,6 +12,19 @@ _PROP_CHOICES = [(_SALE, 'Продажа'), (_LEASE, 'Aренда'), (_CHANGE, '
 
 
 # DB models here.
+class Realtor(models.Model):
+    name = models.CharField(max_length=20, verbose_name='Имя')
+    phone = models.CharField(max_length=17, verbose_name='Телефон')
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = 'Риелтор'
+        verbose_name_plural = 'Риелторы'
+        ordering = ['name']
+
+
 class Apartment(models.Model):
     # SLUG CONSTANTS
     # bathroom type
@@ -64,6 +77,7 @@ class Apartment(models.Model):
     )
     address = models.CharField(max_length=65, verbose_name='Адрес')
     description = models.TextField(blank=True, max_length=400, verbose_name='Описание')
+    realtors = models.ManyToManyField(Realtor, blank=True, verbose_name='Риелтор')
     #cover_image = models.ImageField(upload_to="apartments/", width_field='640', height_field='480', blank=True, verbose_name='базовое изображение')
 
     # METHODS

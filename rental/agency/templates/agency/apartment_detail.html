@@ -82,26 +82,30 @@
                     <h6>&nbsp;&nbsp;&nbsp;{{ object.description }}</h6>
                 </div>
 
-                <div class="col s12" style="margin-top: 50px;">
-                    <div class="col s10 offset-s1">
-                    <div class="card-panel grey lighten-5 z-depth-1">
-                        <div class="row valign-wrapper">
-                            <div class="col s2">
-                                <img src="images/yuna.jpg" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
-                            </div>
-                            <div class="col s10">
-                                  <span class="black-text">
-                                    Ваш риэлтор:
-                                  </span>
-                                  <h6 class="black-text">
-                                    Алена, +38 (095) 777 99 00
-                                  </h6>
-                            </div>
-                        </div>
-                    </div>
-                    </div>
+                <div class="col s8 offset-s2" style="margin-top: 20px;">
+                    <table>
+                        <thead>
+                        <tr>
+                            <th style="color: red;">Риелтор:</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% if object.realtors.all %}
+                            {% for realtor in object.realtors.all %}
+                            <tr>
+                                <td>{{ realtor.name }}</td>
+                                <td><b>{{ realtor.phone }}</b></td>
+                            </tr>
+                            {% endfor %}
+                        {% else %}
+                            <tr>
+                                <td>default</td>
+                                <td>default</td>
+                            </tr>
+                        {% endif %}
+                        </tbody>
+                    </table>
                 </div>
-
 
             </div>
         </div>
