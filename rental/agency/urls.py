@@ -10,4 +10,5 @@ urlpatterns = [
     path('apartments/<str:proposal_type>/<int:rooms_count>/', ApartmentsProposalTypeByRoomsNumber.as_view(),
          name='apartmentsProposalTypeByRoomsNumber'),
     path('apartment/<int:pk>/', ApartmentView.as_view(), name='apartment'),
+    path('houses/', HousesView.as_view(), name='houses'),
 ]
