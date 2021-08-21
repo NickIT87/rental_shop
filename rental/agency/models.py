@@ -89,6 +89,11 @@ class Apartment(models.Model):
     def __str__(self):
         return  self.slug_title + '_' + self.address
 
+    class Meta:
+        verbose_name = 'Квартира'
+        verbose_name_plural = 'Квартиры'
+        ordering = ['created_at']
+
 
 # def get_apartment_dynamic_path_upload_to(instance, filename):
 #     #new_filename = '{}.{}'.format(uuid.uuid4, filename.split('.')[-1])
@@ -108,6 +113,21 @@ class ApartmentGallery(models.Model):
 # my_product.images.all()  где images - related name
 # Gallery.objects.filter(product=my_product)
 # {{ object.images.all }}    {% for image in object.images.all %}
+
+
+class Settlement(models.Model):
+    title = models.CharField(max_length=50, db_index=True, verbose_name='Название')
+
+    def get_absolute_url(self, prop_type):
+        return reverse('housesProposalTypeBySettlement', kwargs={"settlement_id": self.pk, "proposal_type": prop_type})
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = 'Поселок'
+        verbose_name_plural = 'Поселки'
+        ordering = ['title']
 
 
 class House(models.Model):
@@ -153,9 +173,18 @@ class House(models.Model):
     draw_well = models.BooleanField(default=True, verbose_name='Колодец?')
     address = models.CharField(max_length=65, verbose_name='Адрес')
     description = models.TextField(blank=True, max_length=400, verbose_name='Описание')
+    settlement = models.ForeignKey(Settlement, on_delete=models.PROTECT, null=True, verbose_name='Поселок')
 
     def __str__(self):
         return  self.slug_title + '_' + self.address
+
+    # def get_absolute_url(self):
+    #     return reverse('house', kwargs={"pk": self.pk})
+
+    class Meta:
+        verbose_name = 'Дом'
+        verbose_name_plural = 'Дома'
+        ordering = ['created_at']
 
 
 class HouseGallery(models.Model):

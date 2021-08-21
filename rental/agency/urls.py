@@ -11,4 +11,6 @@ urlpatterns = [
          name='apartmentsProposalTypeByRoomsNumber'),
     path('apartment/<int:pk>/', ApartmentView.as_view(), name='apartment'),
     path('houses/', HousesView.as_view(), name='houses'),
+    path('houses/<str:proposal_type>/<int:settlement_id>', HousesProposalTypeBySettlementView.as_view(),
+         name='housesProposalTypeBySettlement'),
 ]

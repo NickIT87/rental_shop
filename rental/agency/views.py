@@ -3,7 +3,7 @@ from django.views.generic.base import TemplateView
 from django.views.generic import ListView, DetailView
 from django.http import Http404
 
-from .models import Apartment, House
+from .models import Apartment, House, Settlement
 
 
 # Create your views here.
@@ -103,3 +103,28 @@ class HousesView(ListView):
 
     def get_queryset(self):
         return House.objects.all()
+
+
+class HousesProposalTypeBySettlementView(ListView):
+    model = House
+    template_name = 'agency/houses.html'
+    context_object_name = 'houses'
+    paginate_by = 6
+    #allow_empty = False
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        try:
+            context['title'] = "Дома, {}, {}.".format(
+                _TRANSLITERATE[self.kwargs['proposal_type']],
+                Settlement.objects.get(pk=self.kwargs['settlement_id'])
+            )
+        except:
+            raise Http404
+        return context
+
+    def get_queryset(self):
+        return House.objects.filter(
+            proposal_type=self.kwargs['proposal_type'],
+            settlement_id=self.kwargs['settlement_id'],
+        ).select_related('settlement')

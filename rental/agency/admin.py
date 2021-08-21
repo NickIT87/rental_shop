@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Realtor, Apartment, ApartmentGallery, House, HouseGallery, LandPlot, CommercialStructure, Garage
+from .models import *
 
 
 # def delete_model(modeladmin, request, queryset):
@@ -46,6 +46,7 @@ class HouseAdmin(admin.ModelAdmin):
     inlines = [HouseGalleryInline,]
 
 
+admin.site.register(Settlement)
 admin.site.register(Realtor)
 admin.site.register(LandPlot)
 admin.site.register(CommercialStructure)
