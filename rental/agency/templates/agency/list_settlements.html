@@ -1,0 +1,31 @@
+<div class="list-group">
+
+  {% for item in settlementsSale %}
+    <span>
+      продажа
+      {{ item.cnt }}
+      {{ item.title }}
+      <br>
+    </span>
+  {% endfor %}
+
+  {% for item in settlementsRental %}
+    <span>
+      аренда
+      {{ item.cnt }}
+      {{ item.title }}
+      <br>
+    </span>
+  {% endfor %}
+
+  {% for item in settlementsExchange %}
+    <span>
+      обмен
+      {{ item.cnt }}
+      {{ item.title }}
+      <br>
+    </span>
+  {% endfor %}
+
+
+</div>
