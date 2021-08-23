@@ -13,7 +13,7 @@ _TRANSLITERATE = {
     'exchange' : 'обмен'
 }
 
-
+# MAIN PAGE VIEW
 class HomePageView(TemplateView):
     template_name = "agency/home.html"
 
@@ -22,7 +22,7 @@ class HomePageView(TemplateView):
         context['title'] = "Home"
         return context
 
-
+# APARTMENTS VIEWS
 class ApartmentsView(ListView):
     model = Apartment
     template_name = "agency/apartments.html"
@@ -89,7 +89,7 @@ class ApartmentsProposalTypeByRoomsNumber(ListView):
 class ApartmentView(DetailView):
     model = Apartment
 
-
+# HOUSES VIEWS
 class HousesView(ListView):
     model = House
     template_name = 'agency/houses.html'
@@ -103,6 +103,24 @@ class HousesView(ListView):
 
     def get_queryset(self):
         return House.objects.all()
+
+
+class HousesProposalTypeView(ListView):
+    model = House
+    template_name = 'agency/houses.html'
+    context_object_name = 'houses'
+    paginate_by = 6
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        try:
+            context['title'] = "Дома, {}.".format(_TRANSLITERATE[self.kwargs['proposal_type']])
+        except:
+            raise Http404
+        return context
+
+    def get_queryset(self):
+        return House.objects.filter(proposal_type=self.kwargs['proposal_type'])
 
 
 class HousesProposalTypeBySettlementView(ListView):
