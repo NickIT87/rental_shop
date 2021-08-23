@@ -1,3 +1,43 @@
+<ul class="collapsible">
+    <li id="sale" class="_sidebar">
+      <div class="collapsible-header"><i class="material-icons">attach_money</i>Продажа <span class="badge">4</span></div>
+      <div class="collapsible-body">
+          <ul>
+              <li><a href="{% url 'housesProposalType' 'sale' %}"><h6>Все</h6></a></li>
+              {% for item in settlementsSale %}
+              <li>
+                  <a href="{% url 'housesProposalTypeBySettlement' 'sale' item.pk %}">
+                      <h6>{{ item.title }} : {{ item.cnt }}</h6>
+                  </a>
+              </li>
+              {% endfor %}
+          </ul>
+      </div>
+    </li>
+    <li id="rental" class="_sidebar">
+      <div class="collapsible-header"><i class="material-icons">business</i>Аренда</div>
+      <div class="collapsible-body">
+          <ul>
+              <li><a href="{% url 'housesProposalType' 'rental' %}"><h6>Все</h6></a></li>
+              {% for item in settlementsRental %}
+              <li><a href="{% url 'housesProposalTypeBySettlement' 'rental' item.pk %}"><h6>{{ item.title }}</h6></a></li>
+              {% endfor %}
+          </ul>
+      </div>
+    </li>
+    <li id="exchange" class="_sidebar">
+      <div class="collapsible-header"><i class="material-icons">cached</i>Обмен</div>
+      <div class="collapsible-body">
+          <ul>
+              <li><a href="{% url 'housesProposalType' 'exchange' %}"><h6>Все</h6></a></li>
+              {% for item in settlementsExchange %}
+              <li><a href="{% url 'housesProposalTypeBySettlement' 'exchange' item.pk %}"><h6>{{ item.title }}</h6></a></li>
+              {% endfor %}
+          </ul>
+      </div>
+    </li>
+</ul>
+
 <div class="list-group">
 
   {% for item in settlementsSale %}

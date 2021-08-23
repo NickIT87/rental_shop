@@ -118,9 +118,6 @@ class ApartmentGallery(models.Model):
 class Settlement(models.Model):
     title = models.CharField(max_length=50, db_index=True, verbose_name='Название')
 
-    def get_absolute_url(self, prop_type):
-        return reverse('housesProposalTypeBySettlement', kwargs={"settlement_id": self.pk, "proposal_type": prop_type})
-
     def __str__(self):
         return self.title
 
