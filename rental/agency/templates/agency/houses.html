@@ -39,7 +39,7 @@
                                 <i class="material-icons right">more_vert</i>
                             </span>
                             <a href="{{ item.get_absolute_url }}" style="color: #448aff;">Подробнее</a>
-                            <p>Дом, комнат: {{ item.number_of_rooms }}</p>
+                            <p>Дом. {{ item.resident_condition }}, комнат: {{ item.number_of_rooms }}</p>
                             <p>{{ item.address }}</p>
                             <!--<p>{{ forloop.counter }}</p>-->
                         </div>
@@ -100,15 +100,5 @@
         </div>
     </div>
 </div>
-
-
-{% comment %}
-    {% for item in flats %}
-        <p>{{ item.address }}</p>
-        {% for photo in item.images.all %}
-            <img src="{{ photo.image.url }}">
-        {% endfor %}
-    {% endfor %}
-{% endcomment %}
 
 {% endblock %}

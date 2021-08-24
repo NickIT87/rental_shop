@@ -171,12 +171,13 @@ class House(models.Model):
     address = models.CharField(max_length=65, verbose_name='Адрес')
     description = models.TextField(blank=True, max_length=400, verbose_name='Описание')
     settlement = models.ForeignKey(Settlement, on_delete=models.PROTECT, null=True, verbose_name='Поселок')
+    realtors = models.ManyToManyField(Realtor, blank=True, verbose_name='Риелтор')
 
     def __str__(self):
         return  self.slug_title + '_' + self.address
 
-    # def get_absolute_url(self):
-    #     return reverse('house', kwargs={"pk": self.pk})
+    def get_absolute_url(self):
+        return reverse('house', kwargs={"pk": self.pk})
 
     class Meta:
         verbose_name = 'Дом'

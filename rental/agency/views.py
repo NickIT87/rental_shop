@@ -146,3 +146,7 @@ class HousesProposalTypeBySettlementView(ListView):
             proposal_type=self.kwargs['proposal_type'],
             settlement_id=self.kwargs['settlement_id'],
         ).select_related('settlement')
+
+
+class HouseView(DetailView):
+    model = House
