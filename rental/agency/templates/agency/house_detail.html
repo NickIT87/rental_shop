@@ -67,6 +67,26 @@
                     </td>
                 </tr>
                 <tr>
+                    <td>Хоз. постройки:</td>
+                    <td>
+                        {% if object.household_buildings %}
+                        <i class="material-icons green-text text-darken-2">check_box</i>
+                        {% else %}
+                        <i class="material-icons red-text text-darken-2">indeterminate_check_box</i>
+                        {% endif %}
+                    </td>
+                </tr>
+                <tr>
+                    <td>Колодец:</td>
+                    <td>
+                        {% if object.draw_well %}
+                        <i class="material-icons green-text text-darken-2">check_box</i>
+                        {% else %}
+                        <i class="material-icons red-text text-darken-2">indeterminate_check_box</i>
+                        {% endif %}
+                    </td>
+                </tr>
+                <tr>
                     <td>Опубликовано:</td>
                     <td>{{ object.created_at | date:"Y-m-d H:i:s" }}</td>
                 </tr>
