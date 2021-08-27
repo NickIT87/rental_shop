@@ -196,15 +196,29 @@ class CommercialStructure(models.Model):
     created_at = models.DateTimeField(auto_now_add=True, verbose_name='Создано')
     updated_at = models.DateTimeField(auto_now=True, verbose_name='Обновлено')
     proposal_type = models.CharField(max_length=8, choices=_PROP_CHOICES, default=_SALE, verbose_name='Тип предложения')
+    price = models.FloatField(verbose_name='Цена $')
     floor_number = models.PositiveSmallIntegerField(
         default=1, validators=[MinValueValidator(1), MaxValueValidator(25)], verbose_name='Этаж'
     )
     total_area = models.FloatField(
         default=30.0, validators=[MinValueValidator(10.0), MaxValueValidator(500.0)], verbose_name='Общая площадь кв.м'
     )
+    wifi = models.BooleanField(default=True, verbose_name='Интернет/WiFi')
     address = models.CharField(max_length=65, verbose_name='Адрес')
     description = models.TextField(blank=True, max_length=400, verbose_name='Описание')
     image = models.ImageField(upload_to="CommercialStructures/", blank=True, verbose_name='Фото')
+    realtors = models.ManyToManyField(Realtor, blank=True, verbose_name='Риелтор')
+
+    def __str__(self):
+        return  self.slug_title + '_' + self.address
+
+    # def get_absolute_url(self):
+    #     return reverse('commercial', kwargs={"pk": self.pk})
+
+    class Meta:
+        verbose_name = 'Коммерческие помещения'
+        verbose_name_plural = 'Коммерческие помещения'
+        ordering = ['created_at']
 
 
 class Garage(models.Model):

@@ -18,4 +18,6 @@ urlpatterns = [
     path('houses/<str:proposal_type>/<int:settlement_id>', HousesProposalTypeBySettlementView.as_view(),
          name='housesProposalTypeBySettlement'),
     path('house/<int:pk>/', HouseView.as_view(), name='house'),
+    # commercial
+    path('commercial_structures/', CommercialStructsView.as_view(), name='commercialStructs')
 ]
