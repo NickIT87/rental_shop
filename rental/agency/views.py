@@ -13,6 +13,7 @@ _TRANSLITERATE = {
     'exchange' : 'обмен'
 }
 
+
 # MAIN PAGE VIEW
 class HomePageView(TemplateView):
     template_name = "agency/home.html"
@@ -21,6 +22,7 @@ class HomePageView(TemplateView):
         context = super().get_context_data(**kwargs)
         context['title'] = "Home"
         return context
+
 
 # APARTMENTS VIEWS
 class ApartmentsView(ListView):
@@ -89,6 +91,7 @@ class ApartmentsProposalTypeByRoomsNumber(ListView):
 class ApartmentView(DetailView):
     model = Apartment
 
+
 # HOUSES VIEWS
 class HousesView(ListView):
     model = House
@@ -152,6 +155,7 @@ class HouseView(DetailView):
     model = House
 
 
+# COMMERCIAL STRUCTURES VIEWS
 class CommercialStructsView(ListView):
     model = CommercialStructure
     template_name = 'agency/commercialStructures.html'
@@ -165,3 +169,21 @@ class CommercialStructsView(ListView):
 
     def get_queryset(self):
         return CommercialStructure.objects.all()
+
+
+class CommStructsPropTypeView(ListView):
+    model = CommercialStructure
+    template_name = 'agency/commercialStructures.html'
+    context_object_name = 'commstructs'
+    paginate_by = 6
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        try:
+            context['title'] = "Коммерческая недвижимость, {}.".format(_TRANSLITERATE[self.kwargs['proposal_type']])
+        except:
+            raise Http404
+        return context
+
+    def get_queryset(self):
+        return CommercialStructure.objects.filter(proposal_type=self.kwargs['proposal_type'])
