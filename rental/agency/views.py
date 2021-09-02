@@ -187,3 +187,7 @@ class CommStructsPropTypeView(ListView):
 
     def get_queryset(self):
         return CommercialStructure.objects.filter(proposal_type=self.kwargs['proposal_type'])
+
+
+class CommercialStructureView(DetailView):
+    model = CommercialStructure

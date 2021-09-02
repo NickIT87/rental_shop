@@ -38,14 +38,14 @@
                                 {% endif %}
                                 <i class="material-icons right">more_vert</i>
                             </span>
-                            <a href="#" style="color: #448aff;">Подробнее</a>
+                            <a href="{{ item.get_absolute_url }}" style="color: #448aff;">Подробнее</a>
                             <p>Офис, этаж: {{ item.floor_number }}</p>
                             <p>{{ item.address }}</p>
                             <!--<p>{{ forloop.counter }}</p>-->
                         </div>
                         <div class="card-reveal">
                             <span class="card-title grey-text text-darken-4">Цена: {{ item.price }} $<i class="material-icons right">close</i></span>
-                            <a href="#" style="color: #448aff;">Подробнее</a>
+                            <a href="{{ item.get_absolute_url }}" style="color: #448aff;">Подробнее</a>
                             <p>{{ item.description }}</p>
                         </div>
                     </div>
