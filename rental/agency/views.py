@@ -3,7 +3,7 @@ from django.views.generic.base import TemplateView
 from django.views.generic import ListView, DetailView
 from django.http import Http404
 
-from .models import Apartment, House, Settlement, CommercialStructure
+from .models import Apartment, House, Settlement, CommercialStructure, Garage
 
 
 # Create your views here.
@@ -191,3 +191,19 @@ class CommStructsPropTypeView(ListView):
 
 class CommercialStructureView(DetailView):
     model = CommercialStructure
+
+
+# GARAGES VIEWS
+class GaragesView(ListView):
+    model = Garage
+    template_name = 'agency/garages.html'
+    context_object_name = 'garages'
+    paginate_by = 6
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = "Гаражи"
+        return context
+
+    def get_queryset(self):
+        return Garage.objects.all()
