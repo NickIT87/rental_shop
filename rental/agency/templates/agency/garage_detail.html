@@ -10,7 +10,7 @@
 
         <div class="col s12 m12 l6 xl6">
             <h5 class="itemTitle">
-                Коммерческая недвижимость,
+                Гараж,
                 {% if object.proposal_type == 'sale' %}
                 продажа
                 {% elif object.proposal_type == 'rental' %}
@@ -28,28 +28,10 @@
             <span class="grey-text text-darken-3"><h6><b>{{ object.address }}</b></h6></span>
             <table class="striped">
                 <tbody>
-
-                <tr>
-                    <td>Этаж:</td>
-                    <td>{{ object.floor_number }}</td>
-                </tr>
-
                 <tr>
                     <td>Общая площадь кв/м.:</td>
                     <td>{{ object.total_area }}</td>
                 </tr>
-
-                <tr>
-                    <td>Интернет, wi/fi:</td>
-                    <td>
-                        {% if object.wifi %}
-                        <i class="material-icons green-text text-darken-2">check_box</i>
-                        {% else %}
-                        <i class="material-icons red-text text-darken-2">indeterminate_check_box</i>
-                        {% endif %}
-                    </td>
-                </tr>
-
                 <tr>
                     <td>Опубликовано:</td>
                     <td>{{ object.created_at | date:"Y-m-d H:i:s" }}</td>

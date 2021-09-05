@@ -239,8 +239,8 @@ class Garage(models.Model):
     def __str__(self):
         return  self.slug_title + '_' + self.address
 
-    # def get_absolute_url(self):
-    #     return reverse('commercialStructure', kwargs={"pk": self.pk})
+    def get_absolute_url(self):
+        return reverse('garage', kwargs={"pk": self.pk})
 
     class Meta:
         verbose_name = 'Гараж'

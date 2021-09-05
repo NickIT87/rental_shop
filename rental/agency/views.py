@@ -225,3 +225,7 @@ class GaragesPropTypeView(ListView):
 
     def get_queryset(self):
         return Garage.objects.filter(proposal_type=self.kwargs['proposal_type'])
+
+
+class GarageView(DetailView):
+    model = Garage
