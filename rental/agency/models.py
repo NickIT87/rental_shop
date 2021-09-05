@@ -233,7 +233,7 @@ class Garage(models.Model):
     )
     address = models.CharField(max_length=65, verbose_name='Адрес')
     description = models.TextField(blank=True, max_length=400, verbose_name='Описание')
-    image = models.ImageField(upload_to="CommercialStructures/", blank=True,  verbose_name='Фото')
+    image = models.ImageField(upload_to="Garages/", blank=True,  verbose_name='Фото')
     realtors = models.ManyToManyField(Realtor, blank=True, verbose_name='Риелтор')
 
     def __str__(self):
