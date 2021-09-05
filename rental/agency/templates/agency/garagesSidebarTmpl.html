@@ -1,13 +1,13 @@
 <div class="collection">
-    <a href="#" class="collection-item">
+    <a href="{% url 'garagesPropType' 'sale' %}" class="collection-item">
         <i class="material-icons">attach_money</i>
         <b>Продажа</b> : {{ garagesBySale }}
     </a>
-    <a href="#" class="collection-item">
+    <a href="{% url 'garagesPropType' 'rental' %}" class="collection-item">
         <i class="material-icons">business</i>
         <b>Аренда</b> : {{ garagesByExchange }}
     </a>
-    <a href="#" class="collection-item">
+    <a href="{% url 'garagesPropType' 'exchange' %}" class="collection-item">
         <i class="material-icons">cached</i>
         <b>Обмен</b> : {{ garagesByRental }}
     </a>

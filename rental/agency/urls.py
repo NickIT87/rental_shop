@@ -24,4 +24,5 @@ urlpatterns = [
     path('commercial_structure/<int:pk>/', CommercialStructureView.as_view(), name='commercialStructure'),
     # garages
     path('garages/', GaragesView.as_view(), name='garages'),
+    path('garages/<str:proposal_type>/', GaragesPropTypeView.as_view(), name='garagesPropType'),
 ]
