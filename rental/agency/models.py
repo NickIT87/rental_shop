@@ -227,12 +227,25 @@ class Garage(models.Model):
     created_at = models.DateTimeField(auto_now_add=True, verbose_name='Создано')
     updated_at = models.DateTimeField(auto_now=True, verbose_name='Обновлено')
     proposal_type = models.CharField(max_length=8, choices=_PROP_CHOICES, default=_SALE, verbose_name='Тип предложения')
+    price = models.FloatField(verbose_name='Цена $')
     total_area = models.FloatField(
         default=10.0, validators=[MinValueValidator(3.0), MaxValueValidator(200.0)], verbose_name='Общая площадь кв.м'
     )
     address = models.CharField(max_length=65, verbose_name='Адрес')
     description = models.TextField(blank=True, max_length=400, verbose_name='Описание')
     image = models.ImageField(upload_to="CommercialStructures/", blank=True,  verbose_name='Фото')
+    realtors = models.ManyToManyField(Realtor, blank=True, verbose_name='Риелтор')
+
+    def __str__(self):
+        return  self.slug_title + '_' + self.address
+
+    # def get_absolute_url(self):
+    #     return reverse('commercialStructure', kwargs={"pk": self.pk})
+
+    class Meta:
+        verbose_name = 'Гараж'
+        verbose_name_plural = 'Гаражи'
+        ordering = ['created_at']
 
 
 class LandPlot(models.Model):
@@ -246,3 +259,15 @@ class LandPlot(models.Model):
     address = models.CharField(max_length=65, verbose_name='Адрес')
     description = models.TextField(blank=True, max_length=400, verbose_name='Описание')
     image = models.ImageField(upload_to="LandPlots/", blank=True, verbose_name='Фото земельного участка')
+    realtors = models.ManyToManyField(Realtor, blank=True, verbose_name='Риелтор')
+
+    def __str__(self):
+        return  self.slug_title + '_' + self.address
+
+    # def get_absolute_url(self):
+    #     return reverse('commercialStructure', kwargs={"pk": self.pk})
+
+    class Meta:
+        verbose_name = 'Земельный участок'
+        verbose_name_plural = 'Земельные участки'
+        ordering = ['created_at']

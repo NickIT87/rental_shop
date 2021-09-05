@@ -23,7 +23,7 @@
                 <div class="col s12 m6 l6 xl4">
                     <div class="card sticky-action hoverable card_flat">
                         <div class="card-image waves-effect waves-block waves-light">
-                            <img class="activator" src="{{ item.images.first.image.url }}">
+                            <img class="activator" src="{{ item.image.url }}">
                         </div>
                         <div class="card-content">
                             <span class="card-title activator grey-text text-darken-4">
@@ -39,7 +39,7 @@
                                 <i class="material-icons right">more_vert</i>
                             </span>
                             <a href="{{ item.get_absolute_url }}" style="color: #448aff;">Подробнее</a>
-                            <p>Дом. {{ item.resident_condition }}, комнат: {{ item.number_of_rooms }}</p>
+                            <p>Гараж.</p>
                             <p>{{ item.address }}</p>
                             <!--<p>{{ forloop.counter }}</p>-->
                         </div>
