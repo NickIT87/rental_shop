@@ -1,0 +1,14 @@
+<div class="collection">
+    <a href="{% url 'garagesPropType' 'sale' %}" class="collection-item">
+        <i class="material-icons">attach_money</i>
+        <b>Продажа</b> : {{ landsBySale }}
+    </a>
+    <a href="{% url 'garagesPropType' 'rental' %}" class="collection-item">
+        <i class="material-icons">business</i>
+        <b>Аренда</b> : {{ landsByExchange }}
+    </a>
+    <a href="{% url 'garagesPropType' 'exchange' %}" class="collection-item">
+        <i class="material-icons">cached</i>
+        <b>Обмен</b> : {{ landsByRental }}
+    </a>
+</div>
