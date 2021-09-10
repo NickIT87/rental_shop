@@ -26,4 +26,6 @@ urlpatterns = [
     path('garages/', GaragesView.as_view(), name='garages'),
     path('garages/<str:proposal_type>/', GaragesPropTypeView.as_view(), name='garagesPropType'),
     path('garage/<int:pk>/', GarageView.as_view(), name='garage'),
+    # land plots
+    path('landplots/', LandPlotsView.as_view(), name='landplots'),
 ]
