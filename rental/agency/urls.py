@@ -30,4 +30,6 @@ urlpatterns = [
     path('landplots/', LandPlotsView.as_view(), name='landPlots'),
     path('landplots/<str:proposal_type>/', LandPlotsPropTypeView.as_view(), name='landPlotsPropType'),
     path('landplot/<int:pk>/', LandPlotView.as_view(), name='landPlot'),
+    # search form pages
+    path('find/', FindFormView.as_view(), name='find'),
 ]

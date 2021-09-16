@@ -267,3 +267,7 @@ class LandPlotsPropTypeView(ListView):
 
 class LandPlotView(DetailView):
     model = LandPlot
+
+
+class FindFormView(TemplateView):
+    template_name = 'agency/searchForm.html'
