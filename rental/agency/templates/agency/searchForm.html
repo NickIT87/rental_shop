@@ -5,5 +5,11 @@
 {% endblock %}
 
 {% block content %}
-    <h1>search form</h1>
+
+<h4>Search</h4>
+<form action="{% url 'search' %}" method="get">
+    <input type="text" name="s" placeholder="Search...">
+    <input type="submit" value="Search">
+</form>
+
 {% endblock %}

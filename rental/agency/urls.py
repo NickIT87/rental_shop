@@ -32,4 +32,5 @@ urlpatterns = [
     path('landplot/<int:pk>/', LandPlotView.as_view(), name='landPlot'),
     # search form pages
     path('find/', FindFormView.as_view(), name='find'),
+    path('search/', Search.as_view(), name='search'),
 ]
