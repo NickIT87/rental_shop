@@ -279,12 +279,11 @@ class FindFormView(TemplateView):
 
 
 class Search(ListView):
-    template_name = 'agency/search.html'
+    template_name = 'agency/searchResult.html'
     context_object_name = 'found_obj'
 
     def get_queryset(self):
-        pass
-        #return Post.objects.filter(title__icontains=self.request.GET.get('s'))
+        return LandPlot.objects.filter(address__icontains=self.request.GET.get('s'))
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)

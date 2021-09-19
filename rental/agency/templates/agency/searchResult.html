@@ -1,0 +1,18 @@
+{% extends 'index.html' %}
+
+{% block title %}
+{{title}} - {{ block.super }}
+{% endblock %}
+
+{% block content %}
+
+
+<div class="container">
+    <h5 style="text-align: center;">Результаты поиска:</h5>
+
+    {{ found_obj }}
+
+</div>
+
+
+{% endblock %}

@@ -6,10 +6,27 @@
 
 {% block content %}
 
-<h4>Search</h4>
-<form action="{% url 'search' %}" method="get">
-    <input type="text" name="s" placeholder="Search...">
-    <input type="submit" value="Search">
-</form>
+
+<div class="container">
+    <h5 style="text-align: center;">Адресный поиск недвижимости</h5>
+
+    <div class="row">
+        <form class="col s12" action="{% url 'search' %}" method="get">
+            <div class="row">
+                <div class="input-field col s9">
+                    <i class="material-icons prefix">search</i>
+                    <input id="enter_search_text" type="text" name="s" data-length="65" maxlength="65">
+                    <label for="enter_search_text">Введите адрес объекта ...</label>
+                    <span class="helper-text" data-error="wrong" data-success="right">Для успешного поиска объекта введите адрес или его часть в поисковую строку.</span>
+                </div>
+
+                <input class="btn btn-large col s3" type="submit" value="найти">
+            </div>
+
+        </form>
+    </div>
+
+</div>
+
 
 {% endblock %}

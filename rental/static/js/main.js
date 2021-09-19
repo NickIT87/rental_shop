@@ -24,4 +24,7 @@ $(document).ready(function(){
 
     // commercial structure
     $('.materialboxed').materialbox();
+
+    // find object (search) form
+    $('input#enter_search_text').characterCounter();
 });
