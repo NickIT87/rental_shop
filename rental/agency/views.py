@@ -283,10 +283,18 @@ class Search(ListView):
     context_object_name = 'found_obj'
 
     def get_queryset(self):
-        return LandPlot.objects.filter(address__icontains=self.request.GET.get('s'))
+        if self.request.GET.get('s') == None:
+            raise Http404
+        elif self.request.GET.get('s') == '':
+            return False
+
+        lp = LandPlot.objects.filter(address__icontains=self.request.GET.get('s'))
+        gj = Garage.objects.filter(address__icontains=self.request.GET.get('s'))
+        return (lp, gj)
+
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['s'] = f"s={self.request.GET.get('s')}&"
+        context['s'] = f"{self.request.GET.get('s')}"
         context['title'] = "search"
         return context
