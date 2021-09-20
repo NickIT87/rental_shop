@@ -287,7 +287,8 @@ class Search(ListView):
             raise Http404
         elif self.request.GET.get('s') == '':
             return False
-
+        print(self.request.GET.get('p1'))
+        print(self.request.GET.get('p2'))
         lp = LandPlot.objects.filter(address__icontains=self.request.GET.get('s'))
         gj = Garage.objects.filter(address__icontains=self.request.GET.get('s'))
         return (lp, gj)

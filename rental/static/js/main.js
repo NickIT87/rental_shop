@@ -27,4 +27,22 @@ $(document).ready(function(){
 
     // find object (search) form
     $('input#enter_search_text').characterCounter();
+
+    // price slider
+    $( "#price-slider" ).slider({
+        range: true,
+        min: 0,
+        max: 500,
+        values: [ 75, 300 ],
+        slide: function( event, ui ) {
+            $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+            $( "#am1" ).val(ui.values[ 0 ]);
+            $( "#am2" ).val(ui.values[ 1 ]);
+        }
+    });
+    $( "#amount" ).val( "$" + $( "#price-slider" ).slider( "values", 0 ) +
+        " - $" + $( "#price-slider" ).slider( "values", 1 ) );
+    $( "#am1" ).val($( "#price-slider" ).slider( "values", 0 ));
+    $( "#am2" ).val($( "#price-slider" ).slider( "values", 1 ));
+
 });

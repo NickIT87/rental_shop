@@ -8,19 +8,30 @@
 
 
 <div class="container">
-    <h5 style="text-align: center;">Адресный поиск недвижимости</h5>
+    <h5 style="text-align: center;">Поиск недвижимости</h5>
 
     <div class="row">
         <form class="col s12" action="{% url 'search' %}" method="get">
             <div class="row">
-                <div class="input-field col s9">
+                <div class="price-slider">
+                    <p>
+                        <label for="amount">Price range:</label>
+                        <input type="text" name="p" id="amount" readonly style="border:0; color:red; font-weight:bold;">
+                        <input type="text" name="p1" id="am1" readonly style="display: none;">
+                        <input type="text" name="p2" id="am2" readonly style="display: none;">
+                    </p>
+                    <div id="price-slider"></div>
+                </div>
+
+
+                <div class="input-field">
                     <i class="material-icons prefix">search</i>
                     <input id="enter_search_text" type="text" name="s" data-length="65" maxlength="65">
-                    <label for="enter_search_text">Введите адрес объекта ...</label>
+                    <label for="enter_search_text">Адрес объекта</label>
                     <span class="helper-text" data-error="wrong" data-success="right">Для успешного поиска объекта введите адрес или его часть в поисковую строку.</span>
                 </div>
 
-                <input class="btn btn-large col s3" type="submit" value="найти">
+                <input class="btn" type="submit" value="найти">
             </div>
 
         </form>
