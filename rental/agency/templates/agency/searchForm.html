@@ -13,22 +13,74 @@
     <div class="row">
         <form class="col s12" action="{% url 'search' %}" method="get">
             <div class="row">
-                <div class="price-slider">
-                    <p>
-                        <label for="amount">Price range:</label>
-                        <input type="text" name="p" id="amount" readonly style="border:0; color:red; font-weight:bold;">
-                        <input type="text" name="p1" id="am1" readonly style="display: none;">
-                        <input type="text" name="p2" id="am2" readonly style="display: none;">
-                    </p>
-                    <div id="price-slider"></div>
+                <div class="row">
+
+                    <div id="sot" class="input-field col s12 m4">
+                        <select id="sot_sel" name="select_obj_type">
+                            <option value="" disabled selected>Не выбрано</option>
+                            <option value="Apartment">Квартиры</option>
+                            <option value="House">Дома</option>
+                            <option value="CommercialStructure">Коммерческая</option>
+                            <option value="Garage">Гаражи</option>
+                            <option value="LandPlot">Участки</option>
+                        </select>
+                        <label>Тип недвижимости:</label>
+                    </div>
+
+                    <div id="prop" class="input-field col s12 m4">
+                        <select id="prop_sel" name="select_proposal_type">
+                            <option value="Sale">Продажа</option>
+                            <option value="Rental">Аренда</option>
+                            <option value="Exchange">Обмен</option>
+                        </select>
+                        <label>Тип предложения:</label>
+                    </div>
+
+                    <div id="sfrc" class="input-field col s12 m4" style="display: none;">
+                        <select id="sfrc_sel" name="select_flat_room_count">
+                            <option value="0">любое</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4+</option>
+                        </select>
+                        <label>Количество комнат:</label>
+                    </div>
+
+                    <div id="setl" class="input-field col s12 m4" style="display: none;">
+                        <select id="setl_sel" name="select_settlement">
+                            {% if settlements %}
+                                {% for settlement in settlements %}
+                                <option value="{{ settlement.title }}">{{ settlement.title }}</option>
+                                {% endfor %}
+                            {% else %}
+                                <option value="" disabled selected>Отсутствует</option>
+                            {% endif %}
+                        </select>
+                        <label>Район/поселок:</label>
+                    </div>
+
                 </div>
 
+                <div class="row">
+                    <div class="price-slider col s12">
+                        <p>
+                            <label for="amount">Разброс цен:</label>
+                            <input type="text" name="p" id="amount" readonly style="border:0; color:red; font-weight:bold;">
+                            <input type="text" name="p1" id="am1" readonly style="display: none;">
+                            <input type="text" name="p2" id="am2" readonly style="display: none;">
+                        </p>
+                        <div id="price-slider"></div>
+                    </div>
+                </div>
 
-                <div class="input-field">
-                    <i class="material-icons prefix">search</i>
-                    <input id="enter_search_text" type="text" name="s" data-length="65" maxlength="65">
-                    <label for="enter_search_text">Адрес объекта</label>
-                    <span class="helper-text" data-error="wrong" data-success="right">Для успешного поиска объекта введите адрес или его часть в поисковую строку.</span>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">search</i>
+                        <input id="enter_search_text" type="text" name="s" data-length="65" maxlength="65">
+                        <label for="enter_search_text">Адрес объекта</label>
+                        <span class="helper-text" data-error="wrong" data-success="right">Для успешного поиска объекта введите адрес или его часть в поисковую строку.</span>
+                    </div>
                 </div>
 
                 <input class="btn" type="submit" value="найти">

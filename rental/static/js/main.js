@@ -45,4 +45,34 @@ $(document).ready(function(){
     $( "#am1" ).val($( "#price-slider" ).slider( "values", 0 ));
     $( "#am2" ).val($( "#price-slider" ).slider( "values", 1 ));
 
+    // select initialize for searchform
+    $('select').formSelect();
+    // logic for search form select item
+    if (performance.navigation.type == 1) {
+        console.log( "reloaded" );
+        console.log($("#sot_sel").val());
+        if($("#sot_sel").val() == "Apartment") {
+            $("#sfrc").show()
+        } else {
+            $("#sfrc").hide()
+        }
+        if($("#sot_sel").val() == "House") {
+            $("#setl").show()
+        } else {
+            $("#setl").hide()
+        }
+    }
+    $("#sot_sel").change(function(){
+        if($(this).val() == "Apartment") {
+            $("#sfrc").show()
+        } else {
+            $("#sfrc").hide()
+        }
+        if($(this).val() == "House") {
+            $("#setl").show()
+        } else {
+            $("#setl").hide()
+        }
+    });
+
 });
