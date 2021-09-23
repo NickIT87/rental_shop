@@ -31,17 +31,17 @@ $(document).ready(function(){
     // price slider
     $( "#price-slider" ).slider({
         range: true,
-        min: 0,
-        max: 500,
-        values: [ 75, 300 ],
+        min: 1000,
+        max: 40000,
+        values: [ 3000, 25000 ],
         slide: function( event, ui ) {
-            $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+            $( "#amount" ).val( "$  " + ui.values[ 0 ] + "   -   $  " + ui.values[ 1 ] );
             $( "#am1" ).val(ui.values[ 0 ]);
             $( "#am2" ).val(ui.values[ 1 ]);
         }
     });
-    $( "#amount" ).val( "$" + $( "#price-slider" ).slider( "values", 0 ) +
-        " - $" + $( "#price-slider" ).slider( "values", 1 ) );
+    $( "#amount" ).val( "$  " + $( "#price-slider" ).slider( "values", 0 ) +
+        "   -   $  " + $( "#price-slider" ).slider( "values", 1 ) );
     $( "#am1" ).val($( "#price-slider" ).slider( "values", 0 ));
     $( "#am2" ).val($( "#price-slider" ).slider( "values", 1 ));
 
@@ -49,8 +49,7 @@ $(document).ready(function(){
     $('select').formSelect();
     // logic for search form select item
     if (performance.navigation.type == 1) {
-        console.log( "reloaded" );
-        console.log($("#sot_sel").val());
+        // reload page logic when page is reloaded
         if($("#sot_sel").val() == "Apartment") {
             $("#sfrc").show()
         } else {
@@ -61,7 +60,15 @@ $(document).ready(function(){
         } else {
             $("#setl").hide()
         }
+    } else {
+        // default value enabling on loaded page
+        if($("#sot_sel").val() == "Apartment") {
+            $("#sfrc").show()
+        } else {
+            $("#sfrc").hide()
+        }
     }
+    // select object type menu change function
     $("#sot_sel").change(function(){
         if($(this).val() == "Apartment") {
             $("#sfrc").show()
@@ -74,5 +81,8 @@ $(document).ready(function(){
             $("#setl").hide()
         }
     });
-
+    // promotion slider
+    var elems = document.querySelectorAll('.slider');
+    var instance = M.Slider.init(elems);
+    instance.start();
 });

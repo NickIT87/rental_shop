@@ -122,3 +122,18 @@ main {
     margin-left: auto;
     margin-right: auto;
 }
+
+.searchTitle {
+    text-align: center;
+    font-family: 'Rubik Mono One', sans-serif;
+    color: #90caf9;
+    text-shadow: 1px 1px 1px black;
+}
+
+#amount {
+    border:0;
+    color:#1de9b6;
+    text-shadow: 1px 1px 1px black;
+    font-weight: bold;
+    font-size: xx-large;
+}
