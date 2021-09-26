@@ -3,7 +3,7 @@ from django.views.generic.base import TemplateView
 from django.views.generic import ListView, DetailView
 from django.http import Http404
 
-from .models import Apartment, House, Settlement, CommercialStructure, Garage, LandPlot
+from .models import Apartment, House, Settlement, CommercialStructure, Garage, LandPlot, Advertising
 
 
 # Create your views here.
@@ -276,6 +276,7 @@ class FindFormView(TemplateView):
         context = super().get_context_data(**kwargs)
         context['title'] = "Поиск объекта"
         context['settlements'] = Settlement.objects.all()
+        context['promos'] = Advertising.objects.all()
         return context
 
 

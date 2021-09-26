@@ -271,3 +271,26 @@ class LandPlot(models.Model):
         verbose_name = 'Земельный участок'
         verbose_name_plural = 'Земельные участки'
         ordering = ['created_at']
+
+
+class Advertising(models.Model):
+    # align choice
+    LEFT = 'left'
+    RIGHT = 'right'
+    CENTER = 'center'
+    ALIGN_CHOICE = [(LEFT, 'по левому краю'), (RIGHT, 'по правому краю'), (CENTER, 'по центру')]
+    # model fields
+    slug = 'promo_'
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name='Создано')
+    title = models.CharField(max_length=40, blank=True, verbose_name='Заголовок')
+    slogan = models.CharField(max_length=40, blank=True, verbose_name='Слоган')
+    align_choice = models.CharField(max_length=8, choices=ALIGN_CHOICE, default=CENTER, verbose_name='выравнивание')
+    image = models.ImageField(upload_to="Advertising/", verbose_name='рекламный банер')
+
+    def __str__(self):
+        return  self.slug + self.title
+
+    class Meta:
+        verbose_name = 'Рекламный банер'
+        verbose_name_plural = 'Рекламные банеры'
+        ordering = ['created_at']

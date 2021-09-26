@@ -1,0 +1,28 @@
+<!-- PROMOTION SLIDER -->
+{% if promos %}
+<div class="slider">
+    <ul class="slides">
+        {% for promo in promos %}
+        <li class="promo-item">
+            <img src="{{ promo.image.url }}"> <!-- default image -->
+            <div class="caption {{ promo.align_choice }}-align">
+                <h3 class="promo-title">{{ promo.title }}</h3>
+                <h5 class="promo-slogan">{{ promo.slogan }}</h5>
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+
+<script>
+window.onload = function() {
+    let items = document.querySelectorAll('.slides')
+    let note = document.querySelector('ul.indicators');
+    if (items.length == 1) {
+        note.style.cssText = 'display: none;';
+    }
+}
+</script>
+
+{% endif %}
+<!-- END PROMOTION SLIDER -->
