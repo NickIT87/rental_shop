@@ -81,8 +81,5 @@ $(document).ready(function(){
             $("#setl").hide()
         }
     });
-    // promotion slider
-    var elems = document.querySelectorAll('.slider');
-    var instance = M.Slider.init(elems);
-    instance.start();
+
 });

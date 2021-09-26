@@ -277,6 +277,12 @@ class FindFormView(TemplateView):
         context['title'] = "Поиск объекта"
         context['settlements'] = Settlement.objects.all()
         context['promos'] = Advertising.objects.all()
+        if len(context['promos']) > 1:
+            print(len(context['promos']))
+            context['option'] = 'true'
+        else:
+            print(len(context['promos']))
+            context['option'] = 'false'
         return context
 
 

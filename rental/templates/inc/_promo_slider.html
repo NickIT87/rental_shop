@@ -13,16 +13,14 @@
         {% endfor %}
     </ul>
 </div>
-
-<script>
+<script type="text/javascript">
+// promotion slider
 window.onload = function() {
-    let items = document.querySelectorAll('.slides')
-    let note = document.querySelector('ul.indicators');
-    if (items.length == 1) {
-        note.style.cssText = 'display: none;';
-    }
+    let options = {"indicators": {{option}} }
+    let elems = document.querySelectorAll('.slider');
+    let instance = M.Slider.init(elems, options);
+    instance.start();
 }
 </script>
-
 {% endif %}
 <!-- END PROMOTION SLIDER -->
