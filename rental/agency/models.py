@@ -283,7 +283,9 @@ class Advertising(models.Model):
     slug = 'promo_'
     created_at = models.DateTimeField(auto_now_add=True, verbose_name='Создано')
     title = models.CharField(max_length=40, blank=True, verbose_name='Заголовок')
+    title_color = models.CharField(max_length=7, default='#fafafa', verbose_name='Цвет заголовка')
     slogan = models.CharField(max_length=40, blank=True, verbose_name='Слоган')
+    slogan_color = models.CharField(max_length=7, default='#fafafa', verbose_name='Цвет слогана')
     align_choice = models.CharField(max_length=8, choices=ALIGN_CHOICE, default=CENTER, verbose_name='выравнивание')
     image = models.ImageField(upload_to="Advertising/", verbose_name='рекламный банер')
 

@@ -6,8 +6,8 @@
         <li class="promo-item">
             <img src="{{ promo.image.url }}"> <!-- default image -->
             <div class="caption {{ promo.align_choice }}-align">
-                <h3 class="promo-title">{{ promo.title }}</h3>
-                <h5 class="promo-slogan">{{ promo.slogan }}</h5>
+                <h3 class="promo-title" style="color: {{promo.title_color}};">{{ promo.title }}</h3>
+                <h5 class="promo-slogan" style="color: {{promo.slogan_color}};">{{ promo.slogan }}</h5>
             </div>
         </li>
         {% endfor %}
