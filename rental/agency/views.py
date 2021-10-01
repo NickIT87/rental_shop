@@ -278,10 +278,8 @@ class FindFormView(TemplateView):
         context['settlements'] = Settlement.objects.all()
         context['promos'] = Advertising.objects.all()
         if len(context['promos']) > 1:
-            print(len(context['promos']))
             context['option'] = 'true'
         else:
-            print(len(context['promos']))
             context['option'] = 'false'
         return context
 
@@ -293,17 +291,22 @@ class Search(ListView):
     def get_queryset(self):
         if self.request.GET.get('s') == None:
             raise Http404
-        elif self.request.GET.get('s') == '':
-            return False
+
+        print(self.request.GET.get('select_obj_type'))
+        print(self.request.GET.get('select_proposal_type'))
+        print(self.request.GET.get('select_flat_room_count'))
+        print(self.request.GET.get('select_settlement'))
         print(self.request.GET.get('p1'))
         print(self.request.GET.get('p2'))
-        lp = LandPlot.objects.filter(address__icontains=self.request.GET.get('s'))
-        gj = Garage.objects.filter(address__icontains=self.request.GET.get('s'))
-        return (lp, gj)
+        print(self.request.GET.get('s'))
+
+        #lp = LandPlot.objects.filter(address__icontains=self.request.GET.get('s'))
+        #gj = Garage.objects.filter(address__icontains=self.request.GET.get('s'))
+        return False
 
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['s'] = f"{self.request.GET.get('s')}"
+        #context['s'] = f"{self.request.GET.get('s')}"
         context['title'] = "search"
         return context
