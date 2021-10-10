@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.views.generic.base import TemplateView
 from django.views.generic import ListView, DetailView
 from django.http import Http404
+from django.db.models import Q
 
 from .models import Apartment, House, Settlement, CommercialStructure, Garage, LandPlot, Advertising
 
@@ -289,21 +290,39 @@ class Search(ListView):
     context_object_name = 'found_obj'
 
     def get_queryset(self):
-        if self.request.GET.get('s') == None:
+        if self.request.GET.get('s') == None or self.request.GET.get('select_obj_type') == None:
             raise Http404
-
-        print(self.request.GET.get('select_obj_type'))
-        print(self.request.GET.get('select_proposal_type'))
-        print(self.request.GET.get('select_flat_room_count'))
-        print(self.request.GET.get('select_settlement'))
-        print(self.request.GET.get('p1'))
-        print(self.request.GET.get('p2'))
-        print(self.request.GET.get('s'))
-
-        #lp = LandPlot.objects.filter(address__icontains=self.request.GET.get('s'))
-        #gj = Garage.objects.filter(address__icontains=self.request.GET.get('s'))
-        return False
-
+        # request variables
+        obj_type = self.request.GET.get('select_obj_type')
+        prop_type = self.request.GET.get('select_proposal_type')
+        flat_cnt = int(self.request.GET.get('select_flat_room_count'))
+        stlmnt = self.request.GET.get('select_settlement')
+        p1 = self.request.GET.get('p1')
+        p2 = self.request.GET.get('p2')
+        s = self.request.GET.get('s')
+        # Apartments search logic
+        if obj_type == 'Apartment':
+            if flat_cnt > 0 and len(s) > 0:
+                if flat_cnt == 4:
+                    return Apartment.objects.filter(proposal_type=prop_type, price__range=(p1, p2),
+                                                    number_of_rooms__gt=3, address__icontains=s)
+                else:
+                    return Apartment.objects.filter(proposal_type=prop_type, price__range=(p1, p2),
+                                                    number_of_rooms=flat_cnt, address__icontains0=s)
+            elif flat_cnt == 0 and len(s) > 0:
+                return Apartment.objects.filter(proposal_type=prop_type, price__range=(p1, p2), address__icontains=s)
+            elif flat_cnt > 0 and len(s) == 0:
+                if flat_cnt == 4:
+                    return Apartment.objects.filter(proposal_type=prop_type, price__range=(p1, p2),
+                                                    number_of_rooms__gt=3)
+                else:
+                    return Apartment.objects.filter(proposal_type=prop_type, price__range=(p1, p2),
+                                                    number_of_rooms=flat_cnt)
+            else:
+                return Apartment.objects.filter(proposal_type=prop_type, price__range=(p1, p2))
+        else:
+            # default return never execute
+            return False
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
