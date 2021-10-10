@@ -320,6 +320,15 @@ class Search(ListView):
                                                     number_of_rooms=flat_cnt)
             else:
                 return Apartment.objects.filter(proposal_type=prop_type, price__range=(p1, p2))
+        elif obj_type == 'House':
+            if len(s) > 0:
+                return House.objects.filter(proposal_type=prop_type, price__range=(p1, p2),
+                                            address__icontains=s, settlement__title__contains=stlmnt
+                )
+            else:
+                return House.objects.filter(proposal_type=prop_type, price__range=(p1, p2),
+                                            settlement__title__contains=stlmnt
+                )
         else:
             # default return never execute
             return False
