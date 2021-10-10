@@ -329,6 +329,25 @@ class Search(ListView):
                 return House.objects.filter(proposal_type=prop_type, price__range=(p1, p2),
                                             settlement__title__contains=stlmnt
                 )
+        elif obj_type == 'CommercialStructure':
+            if len(s) > 0:
+                return CommercialStructure.objects.filter(
+                    proposal_type=prop_type,
+                    price__range=(p1, p2),
+                    address__icontains=s
+                )
+            else:
+                return CommercialStructure.objects.filter(proposal_type=prop_type, price__range=(p1, p2))
+        elif obj_type == 'Garage':
+            if len(s) > 0:
+                return Garage.objects.filter(proposal_type=prop_type, price__range=(p1, p2), address__icontains=s)
+            else:
+                return Garage.objects.filter(proposal_type=prop_type, price__range=(p1, p2))
+        elif obj_type == 'LandPlot':
+            if len(s) > 0:
+                return LandPlot.objects.filter(proposal_type=prop_type, price__range=(p1, p2), address__icontains=s)
+            else:
+                return LandPlot.objects.filter(proposal_type=prop_type, price__range=(p1, p2))
         else:
             # default return never execute
             return False
