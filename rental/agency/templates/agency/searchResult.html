@@ -8,12 +8,40 @@
 
 
 <div class="container">
-    <h5 style="text-align: center;">Результаты поиска:</h5>
-
-    {{ found_obj }}
-
-    <p>{{ s }}</p>
-
+    <br>
+    <h5 class="searchResultTitle">Результаты поиска:</h5>
+    <br>
+    {% if found_obj %}
+    <table class="striped centered">
+        <thead>
+        <tr>
+            <th># id:</th>
+            <th>Адрес:</th>
+            <th>Цена $:</th>
+            <th>Ссылка на объект:</th>
+        </tr>
+        </thead>
+        <!-- Search results -->
+        <tbody>
+        {% for obj in found_obj %}
+        <tr>
+            <td>{{ obj.pk }}</td>
+            <td>{{ obj.address }}</td>
+            <td>{{ obj.price }}</td>
+            <td>
+                <a href="{{ obj.get_absolute_url }}" style="color: #448aff;">
+                    Подробнее
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <h6 style="text-align: center;">
+        По Вашему запросу ничего не найдено, попробуйте еще раз.
+    </h6>
+    {% endif %}
 </div>
 
 

@@ -149,3 +149,10 @@ main {
 .promo-slogan {
     text-shadow: 2px 2px 2px black;
 }
+
+.searchResultTitle {
+    text-align: center;
+    font-family: 'Rubik Mono One', sans-serif;
+    color: #90caf9;
+    text-shadow: 1px 1px 1px black;
+}
