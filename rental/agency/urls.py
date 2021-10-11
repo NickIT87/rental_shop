@@ -33,4 +33,6 @@ urlpatterns = [
     # search form pages
     path('find/', FindFormView.as_view(), name='find'),
     path('search/', Search.as_view(), name='search'),
+    # about / contacts
+    path('about/', AboutView.as_view(), name='about')
 ]
