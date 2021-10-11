@@ -52,3 +52,8 @@ admin.site.register(LandPlot)
 admin.site.register(CommercialStructure)
 admin.site.register(Garage)
 admin.site.register(Advertising)
+
+
+admin.site.index_title = "Vector Kramatorsk"
+admin.site.site_header = "Vector Kramatorsk admin"
+admin.site.site_title = "Vector Kramatorsk"
