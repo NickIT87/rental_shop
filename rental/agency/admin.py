@@ -44,6 +44,8 @@ class HouseGalleryInline(admin.TabularInline):
 @admin.register(House)
 class HouseAdmin(admin.ModelAdmin):
     inlines = [HouseGalleryInline,]
+    search_fields = ('pk','price','address')
+    list_filter = ('number_of_rooms',)
 
 
 admin.site.register(Settlement)
