@@ -11,17 +11,6 @@
         <li class="divider"></li>
         <li><a href="{% url 'landPlots' %}">Участки</a></li>
     </ul>
-    <ul id="dropdown2" class="dropdown-content">
-        <li><a href="{% url 'apartments' %}">Квартиры</a></li>
-        <li class="divider"></li>
-        <li><a href="{% url 'houses' %}">Дома</a></li>
-        <li class="divider"></li>
-        <li><a href="{% url 'commercialStructs' %}">Коммерческая</a></li>
-        <li class="divider"></li>
-        <li><a href="{% url 'garages' %}">Гаражи</a></li>
-        <li class="divider"></li>
-        <li><a href="{% url 'landPlots' %}">Участки</a></li>
-    </ul>
     <!-- END Data Dropdown -->
     <nav class="sidenav-trigger">
         <div class="nav-wrapper">
@@ -40,6 +29,10 @@
     <ul class="sidenav" id="mobile-demo">
         <li><a href="{% url 'about' %}">О Нас / Контакты</a></li>
         <li><a href="{% url 'find' %}"><i class="material-icons right">search</i>Поиск</a></li>
-        <li><a class="dropdown-trigger" href="#!" data-target="dropdown2">Недвижимость<i class="material-icons right">arrow_drop_down</i></a></li>
+        <li><a href="{% url 'apartments' %}">Квартиры</a></li>
+        <li><a href="{% url 'houses' %}">Дома</a></li>
+        <li><a href="{% url 'commercialStructs' %}">Коммерческая</a></li>
+        <li><a href="{% url 'garages' %}">Гаражи</a></li>
+        <li><a href="{% url 'landPlots' %}">Участки</a></li>
     </ul>
 </header>
