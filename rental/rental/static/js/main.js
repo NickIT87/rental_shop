@@ -46,7 +46,10 @@ $(document).ready(function(){
     $( "#am2" ).val($( "#price-slider" ).slider( "values", 1 ));
 
     // select initialize for searchform
-    $('select').formSelect();
+    $('#sot_sel').formSelect();
+    $('#prop_sel').formSelect();
+    $('#sfrc_sel').formSelect();
+    $('#setl_sel').formSelect();
     // logic for search form select item
     if (performance.navigation.type == 1) {
         // reload page logic when page is reloaded

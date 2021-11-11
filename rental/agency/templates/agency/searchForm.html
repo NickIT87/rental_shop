@@ -18,7 +18,8 @@
                 <div class="row">
                     <!-- RENTAL TYPE -->
                     <div id="sot" class="input-field col s12 m4">
-                        <select id="sot_sel" name="select_obj_type">
+                        <div><label>Тип недвижимости:</label></div>
+                        <select id="sot_sel" class="browser-default" name="select_obj_type">
                             <!--<option value="0" disabled selected>Не выбрано</option>-->
                             <option value="Apartment">Квартиры</option>
                             <option value="House">Дома</option>
@@ -26,31 +27,31 @@
                             <option value="Garage">Гаражи</option>
                             <option value="LandPlot">Участки</option>
                         </select>
-                        <label>Тип недвижимости:</label>
                     </div>
                     <!-- PROPOSAL TYPE SELECT -->
                     <div id="prop" class="input-field col s12 m4">
-                        <select id="prop_sel" name="select_proposal_type">
+                        <div><label>Тип предложения:</label></div>
+                        <select id="prop_sel" class="browser-default" name="select_proposal_type">
                             <option value="sale">Продажа</option>
                             <option value="rental">Аренда</option>
                             <option value="exchange">Обмен</option>
                         </select>
-                        <label>Тип предложения:</label>
                     </div>
                     <!-- ROOM COUNT SELECT -->
                     <div id="sfrc" class="input-field col s12 m4" style="display: none;">
-                        <select id="sfrc_sel" name="select_flat_room_count">
+                        <div><label>Количество комнат:</label></div>
+                        <select id="sfrc_sel" class="browser-default" name="select_flat_room_count">
                             <option value="0">любое</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
                             <option value="4">4+</option>
                         </select>
-                        <label>Количество комнат:</label>
                     </div>
                     <!-- SETTLEMENT SELECT -->
                     <div id="setl" class="input-field col s12 m4" style="display: none;">
-                        <select id="setl_sel" name="select_settlement">
+                        <div><label>Район/поселок:</label></div>
+                        <select id="setl_sel" class="browser-default" name="select_settlement">
                             {% if settlements %}
                                 {% for settlement in settlements %}
                                 <option value="{{ settlement.title }}">{{ settlement.title }}</option>
@@ -59,7 +60,6 @@
                                 <option value="" disabled selected>Отсутствует</option>
                             {% endif %}
                         </select>
-                        <label>Район/поселок:</label>
                     </div>
                 </div>
                 <!-- PRICE SLIDER -->
