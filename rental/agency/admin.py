@@ -17,6 +17,8 @@ class ApartmentGalleryInline(admin.TabularInline):
 @admin.register(Apartment)
 class ApartmentAdmin(admin.ModelAdmin):
     inlines = [ApartmentGalleryInline,]
+    search_fields = ('pk', 'price', 'address')
+    list_filter = ('number_of_rooms',)
     #actions = [delete_model]
 
     # def delete_queryset(self, request, queryset):
@@ -45,7 +47,7 @@ class HouseGalleryInline(admin.TabularInline):
 class HouseAdmin(admin.ModelAdmin):
     inlines = [HouseGalleryInline,]
     search_fields = ('pk','price','address')
-    list_filter = ('number_of_rooms',)
+    list_filter = ('number_of_rooms', 'settlement')
 
 
 admin.site.register(Settlement)
